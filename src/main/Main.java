@@ -18,5 +18,6 @@ public class Main {
 		System.out.print("Please enter your output filename:");
 		path = scanner.nextLine();
 		csv.outputData(path);
+		System.out.print("Finish output: " + path + ".csv");
 	}
 }
