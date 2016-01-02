@@ -5,17 +5,17 @@ graphics.off() # This closes all of R's graphics windows.
 rm(list=ls())  # Careful! This clears all of R's memory!
 #------------------------------------------------------------------------------- 
 # Read the data 
-myData = read.csv("air-result.csv")
+myData = read.csv("output.csv.csv")
 #------------------------------------------------------------------------------- 
 # Load the relevant model into R's working memory:
-source("Jags-Ybinom-XnomSsubjCcat-MbinomBetaOmegaKappa.R")
+source("genMCMC.R")
 #------------------------------------------------------------------------------- 
 # Optional: Specify filename root and graphical format for saving output.
 # Otherwise specify as NULL or leave saveName and saveType arguments 
 # out of function calls.
-fileNameRoot = "air-result-POST-" 
+fileNameRoot = "air-result-POST" 
 graphFileType = "pdf" 
-#------------------------------------------------------------------------------- 
+#-------------------------------------------r------------------------------------ 
 # Generate the MCMC chain:
 startTime = proc.time()
 mcmcCoda = genMCMC( data=myData , 
