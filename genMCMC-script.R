@@ -20,7 +20,7 @@ graphFileType = "pdf"
 startTime = proc.time()
 mcmcCoda = genMCMC( data=myData , 
                     # The column in our data
-                    zName="Day00", NName="Dummy", sName="Date", cName="Season",
+                    zName="Day00", NName="Dummy", sName="DateStation", cName="Season",
                     numSavedSteps=500 , saveName=fileNameRoot ,
                     thinSteps=20)
 stopTime = proc.time()

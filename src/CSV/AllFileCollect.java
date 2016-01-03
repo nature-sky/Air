@@ -74,9 +74,12 @@ public class AllFileCollect {
 					}
 					// System.out.println();
 					if (ok) {
+						newLine = newLine.replace(newLine.split(",")[0]+","+newLine.split(",")[1],newLine.split(",")[0]+newLine.split(",")[1]);
 						Constant.dataList.add(newLine);
 					}
 				}
+				
+				
 			}
 
 			// close stream

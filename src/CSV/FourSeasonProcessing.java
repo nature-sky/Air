@@ -14,12 +14,12 @@ public class FourSeasonProcessing {
 			String[] linesplit = line.split(",");
 
 			// Process Header row
-			if (linesplit[2].equals("Item")) {
+			if (linesplit[1].equals("Item")) {
 				Constant.seasonDataList.add("Season,Dummy," + line);
 			}
 
 			// Fetch the row that has PM10 value
-			else if (linesplit[2].equals("PM10")) {
+			else if (linesplit[1].equals("PM10")) {
 //				for (int j = 1; j <= 12; j++) {
 					String[] date = linesplit[0].split("/");
 
