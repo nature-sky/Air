@@ -28,7 +28,7 @@ public class DataProcessing {
 		String line;
 		try {
 			reader = new BufferedReader(new InputStreamReader(
-					new FileInputStream(path), "big5"));
+					new FileInputStream(path), Constant.encode));
 
 			// read file line by line
 			while ((line = reader.readLine()) != null) {
@@ -53,7 +53,7 @@ public class DataProcessing {
 	}
 
 	// write into a csv file
-	public void outputData(String filename) {
+	public void outputData(String filename, ArrayList<String> dataList) {
 		PrintWriter output;
 		BufferedWriter out;
 		try {
@@ -68,7 +68,7 @@ public class DataProcessing {
 			// output = new BufferedW
 			out = new BufferedWriter(new OutputStreamWriter(
 					new FileOutputStream(filename + ".csv")));
-			for (String s : Constant.dataList) {
+			for (String s : dataList) {
 				String[] split = s.split(",");
 				Boolean WRITE_STATUS = true;
 
