@@ -15,15 +15,19 @@ import main.Constant;
 
 public class AllFileCollect {
 	File folder;
-	int count =0;
-	public static void main(String[] args){
+	int count = 0;
+
+	public static void main(String[] args) {
 		new AllFileCollect().execute();
+		// System.out.println(",32,,,,,".split(",").length);
 	}
-	public void execute(){
+
+	public void execute() {
 		folder = new File(Constant.folderLocation);
 		listFilesForFolder(folder);
 		outputData();
 	}
+
 	public void readData(String path) {
 		BufferedReader reader;
 		String line;
@@ -34,9 +38,44 @@ public class AllFileCollect {
 			// read file line by line
 			while ((line = reader.readLine()) != null) {
 				count++;
+				boolean ok = true;
+				String newLine = "";
 				if (line.contains("PM10") || count == 1) {
-					System.out.println("AAA " + line);
-					Constant.dataList.add(line);
+					// System.out.println(line.split(",").length);
+					line = line.replace("日期", "Date");
+					line = line.replace("測站", "Station");
+					line = line.replace("測項", "Item");
+					line = line.replace("淡水", "Tamshui");
+					line = line.replace("三義", "Sanyi");
+					if (line.split(",").length != 27) {
+						continue;
+					}
+					for (int i = 0; i < line.split(",").length; i++) {
+						if (i >= 3) {
+							if (!line.split(",")[i].matches("[0-9]+")) {
+								ok = false;
+								break;
+							} else {
+								if (count == 1) {
+									newLine += ",Day" + line.split(",")[i];
+								} else {
+									newLine += ","
+											+ Double.parseDouble(line
+													.split(",")[i]);
+								}
+							}
+						} else {
+							if (i == 0) {
+								newLine += line.split(",")[0];
+							} else {
+								newLine += "," + line.split(",")[i];
+							}
+						}
+					}
+					// System.out.println();
+					if (ok) {
+						Constant.dataList.add(newLine);
+					}
 				}
 			}
 
@@ -46,26 +85,28 @@ public class AllFileCollect {
 			e1.printStackTrace();
 		}
 	}
+
 	public void listFilesForFolder(final File folder) {
-	    for (final File fileEntry : folder.listFiles()) {
-	        if (fileEntry.isDirectory()) {
-	            listFilesForFolder(fileEntry);
-	        } else {
-	        		String name = fileEntry.getName();
-	        		if(name.contains(".csv")){
-	        			System.out.println(fileEntry.getPath());
-	        			readData(fileEntry.getPath());
-	        		}
-	        }
-	    }
+		for (final File fileEntry : folder.listFiles()) {
+			if (fileEntry.isDirectory()) {
+				listFilesForFolder(fileEntry);
+			} else {
+				String name = fileEntry.getName();
+				if (name.contains(".csv")) {
+					System.out.println(fileEntry.getPath());
+					readData(fileEntry.getPath());
+				}
+			}
+		}
 	}
-	
+
 	public void outputData() {
 		PrintWriter output;
 		BufferedWriter out;
 		try {
 			// Clear the file if the file has already existed
-			output = new PrintWriter(new BufferedWriter(new FileWriter("allData.csv", false)));
+			output = new PrintWriter(new BufferedWriter(new FileWriter(
+					"allData.csv", false)));
 			output.print("");
 			output.close();
 			// Open a file
@@ -73,7 +114,7 @@ public class AllFileCollect {
 			// FileWriter(filename+".csv",true)));
 			// output = new BufferedW
 			out = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream("allData.csv")));
+					new FileOutputStream("allData.csv"), "big5"));
 			for (String s : Constant.dataList) {
 				String[] split = s.split(",");
 				Boolean WRITE_STATUS = true;
@@ -100,5 +141,4 @@ public class AllFileCollect {
 		}
 	}
 
-	
 }

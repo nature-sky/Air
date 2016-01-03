@@ -19,7 +19,6 @@ public class YearProcessing {
 			System.out.println(Constant.dataList.get(i) + "  ");
 		}
 		processing();
-
 	}
 
 	public void processing() {

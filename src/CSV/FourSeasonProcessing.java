@@ -14,7 +14,7 @@ public class FourSeasonProcessing {
 			String[] linesplit = line.split(",");
 
 			// Process Header row
-			if (linesplit[2].equals("測項")) {
+			if (linesplit[2].equals("Item")) {
 				Constant.seasonDataList.add("Season,Dummy," + line);
 			}
 

@@ -13,16 +13,16 @@ source("genMCMC.R")
 # Optional: Specify filename root and graphical format for saving output.
 # Otherwise specify as NULL or leave saveName and saveType arguments 
 # out of function calls.
-fileNameRoot = "air-result-POST" 
+fileNameRoot = "air-result-POST-" 
 graphFileType = "pdf" 
 #-------------------------------------------r------------------------------------ 
 # Generate the MCMC chain:
 startTime = proc.time()
 mcmcCoda = genMCMC( data=myData , 
                     # The column in our data
-                    zName="X00", NName="Dummy", sName="日期", cName="Season",
+                    zName="Day00", NName="Dummy", sName="Date", cName="Season",
                     numSavedSteps=500 , saveName=fileNameRoot ,
-                    thinSteps=20 )
+                    thinSteps=20)
 stopTime = proc.time()
 elapsedTime = stopTime - startTime
 show(elapsedTime)
@@ -42,14 +42,15 @@ summaryInfo = smryMCMC( mcmcCoda , compVal=NULL ,
 # Display posterior information:
 plotMCMC( mcmcCoda , data=myData , 
           # The column in our data
-          zName="X00", NName="Dummy", sName="日期", cName="Season", 
+          zName="X00", NName="Dummy", sName="Date", cName="Season", 
           compVal=NULL ,
           diffCList=list( c("Spring","Summer") , # Compare Spring and Summer
                           c("Autumn","Winter") ) , # Compare Autumn and Winter
-          diffSList=list( c("2014/01/04","2014/06/13") ), # Compare two dates
+          #diffSList=list( c("2014/01/04","2014/06/13") ), # Compare two dates
                          # c("Mike Leake","Wandy Rodriguez") , 
                           #c("Andrew McCutchen","Brett Jackson") , 
                           #c("ShinSoo Choo","Ichiro Suzuki") ) , 
           compValDiff=0.0, #ropeDiff = c(-0.05,0.05) ,
           saveName=fileNameRoot , saveType=graphFileType )
 #------------------------------------------------------------------------------- 
+

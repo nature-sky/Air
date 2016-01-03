@@ -55,7 +55,7 @@ public class DataProcessing {
 	// write into a csv file
 	public void outputData(String filename, ArrayList<String> dataList) {
 		PrintWriter output;
-		BufferedWriter out;
+		PrintWriter out;
 		try {
 			// Clear the file if the file has already existed
 			output = new PrintWriter(new BufferedWriter(new FileWriter(filename
@@ -66,8 +66,8 @@ public class DataProcessing {
 			// output = new PrintWriter(new BufferedWriter(new
 			// FileWriter(filename+".csv",true)));
 			// output = new BufferedW
-			out = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream(filename + ".csv")));
+			out = new PrintWriter(new BufferedWriter(new FileWriter(filename
+					+ ".csv", true)));
 			for (String s : dataList) {
 				String[] split = s.split(",");
 				Boolean WRITE_STATUS = true;

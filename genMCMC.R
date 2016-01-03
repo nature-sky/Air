@@ -37,24 +37,24 @@ genMCMC = function( data , zName="z" , NName="N" , sName="s" , cName="c" ,
   # THE MODEL.
   modelString = "
   model {
-  for ( s in 1:Nsubj ) {
-  z[s] ~ dbin( theta[s] , N[s] )
-  theta[s] ~ dbeta( omega[c[s]]*(kappa[c[s]]-2)+1 , 
-  (1-omega[c[s]])*(kappa[c[s]]-2)+1 ) 
-  }
-  for ( j in 1:Ncat ) {
-  omega[j] ~ dbeta( omegaO*(kappaO-2)+1 , 
-  (1-omegaO)*(kappaO-2)+1 )
-  kappa[j] <- kappaMinusTwo[j] + 2
-  kappaMinusTwo[j] ~ dgamma( 0.01 , 0.01 ) # mean=1 , sd=10 (generic vague)
-  }
-  omegaO ~ dbeta( 1.0 , 1.0 ) 
-  #omegaO ~ dbeta( 1.025 , 1.075 ) # mode=0.25 , concentration=2.1
-  kappaO <- kappaMinusTwoO + 2
-  kappaMinusTwoO ~ dgamma( 0.01 , 0.01 )  # mean=1 , sd=10 (generic vague)
-  #kappaMinusTwoO ~ dgamma( 1.01005 , 0.01005012 )  # mode=1 , sd=100
-  #kappaMinusTwoO ~ dgamma( 1.105125 , 0.1051249 )  # mode=1 , sd=10
-  #kappaMinusTwoO ~ dgamma( 1.105125 , 0.01051249 )  # mode=10 , sd=100
+    for ( s in 1:Nsubj ) {
+      z[s] ~ dbin( theta[s] , N[s] )
+      theta[s] ~ dbeta( omega[c[s]]*(kappa[c[s]]-2)+1 , 
+                        (1-omega[c[s]])*(kappa[c[s]]-2)+1 ) 
+    }
+    for ( c in 1:Ncat ) {
+      omega[c] ~ dbeta( omegaO*(kappaO-2)+1 , 
+                        (1-omegaO)*(kappaO-2)+1 )
+      kappa[c] <- kappaMinusTwo[c] + 2
+      kappaMinusTwo[c] ~ dgamma( 0.01 , 0.01 ) # mean=1 , sd=10 (generic vague)
+    }
+    omegaO ~ dbeta( 1.0 , 1.0 ) 
+    #omegaO ~ dbeta( 1.025 , 1.075 ) # mode=0.25 , concentration=2.1
+    kappaO <- kappaMinusTwoO + 2
+    kappaMinusTwoO ~ dgamma( 0.01 , 0.01 )  # mean=1 , sd=10 (generic vague)
+    #kappaMinusTwoO ~ dgamma( 1.01005 , 0.01005012 )  # mode=1 , sd=100
+    #kappaMinusTwoO ~ dgamma( 1.105125 , 0.1051249 )  # mode=1 , sd=10
+    #kappaMinusTwoO ~ dgamma( 1.105125 , 0.01051249 )  # mode=10 , sd=100
   }
   " # close quote for modelString
   writeLines( modelString , con="TEMPmodel.txt" )
@@ -315,7 +315,7 @@ plotMCMC = function( codaSamples ,
       }
     }
   }
-  
+
   # Plot individual theta's and differences:
   if ( !is.null(diffSList) ) {
     for ( compIdx in 1:length(diffSList) ) {
