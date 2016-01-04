@@ -31,7 +31,7 @@ public class YearProcessing {
 			} else{
 				String year = data.split(",")[0].split("/")[0];
 				String dummy = "1000";
-				Constant.yearDataList.add(year+","+dummy+","+data);
+				Constant.yearDataList.add("Y"+year+","+dummy+","+data);
 //				System.out.println(year);
 			}
 		}

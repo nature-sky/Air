@@ -41,7 +41,7 @@ public class AllFileCollect {
 				boolean ok = true;
 				String newLine = "";
 				if (line.contains("PM10") || count == 1) {
-					System.out.println(line);
+//					System.out.println(line);
 					line = line.replaceAll("\"", "");
 //					System.out.println(line);
 					line = line.replace("日期", "Date");
@@ -65,7 +65,7 @@ public class AllFileCollect {
 					}
 					for (int i = 0; i < line.split(",").length; i++) {
 						if (i >= 3) {
-							if (!line.split(",")[i].matches("[0-9]+")) {
+							if (!line.split(",")[i].matches("[0-9]+") || Integer.valueOf(line.split(",")[i])>500) {
 								ok = false;
 								break;
 							} else {
@@ -109,7 +109,7 @@ public class AllFileCollect {
 			} else {
 				String name = fileEntry.getName();
 				if (name.contains(".csv")) {
-					System.out.println(fileEntry.getPath());
+//					System.out.println(fileEntry.getPath());
 					readData(fileEntry.getPath());
 				}
 			}
