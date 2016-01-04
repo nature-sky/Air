@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import CSV.DataProcessing;
+import CSV.DayProcessing;
 import CSV.FourSeasonProcessing;
 import CSV.YearProcessing;
 
@@ -12,6 +13,7 @@ public class Main {
 	DataProcessing csv;
 	YearProcessing yp;
 	FourSeasonProcessing fs;
+	DayProcessing dp;
 	public Main(){
 		csv = new DataProcessing();
 	}
@@ -23,9 +25,10 @@ public class Main {
 	}
 	
 	public void processingAndOutput(){
-		fourSeasonProcessingAndOutputData();
+//		fourSeasonProcessingAndOutputData();
 //		yearProcessingAndOutputData();
 //		yp.execute();
+		dayProcessingAndOutputData();
 	}
 	
 	public void readData(){
@@ -58,4 +61,11 @@ public class Main {
 		yp.execute();
 		outputData(Constant.yearDataList);
 	}
+	
+	public void dayProcessingAndOutputData(){
+		dp = new DayProcessing();
+		dp.processForDays();
+		outputData(Constant.dayDataList);
+	}
+	
 }
