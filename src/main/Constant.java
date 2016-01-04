@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Constant {
 	public static ArrayList<String >dataList = new ArrayList<String>();
+
 	public static String folderLocation ="/Users/Cameradog/Documents/JavaWorkSpace/Air/folder";
 	public static String encode ="big5";
 	

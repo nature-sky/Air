@@ -47,10 +47,9 @@ plotMCMC( mcmcCoda , data=myData ,
           diffCList=list( c("Spring","Summer") , # Compare Spring and Summer
                           c("Autumn","Winter") ) , # Compare Autumn and Winter
           #diffSList=list( c("2014/01/04","2014/06/13") ), # Compare two dates
-                         # c("Mike Leake","Wandy Rodriguez") , 
-                          #c("Andrew McCutchen","Brett Jackson") , 
-                          #c("ShinSoo Choo","Ichiro Suzuki") ) , 
+          # c("Mike Leake","Wandy Rodriguez") , 
+          #c("Andrew McCutchen","Brett Jackson") , 
+          #c("ShinSoo Choo","Ichiro Suzuki") ) , 
           compValDiff=0.0, #ropeDiff = c(-0.05,0.05) ,
           saveName=fileNameRoot , saveType=graphFileType )
 #------------------------------------------------------------------------------- 
-
