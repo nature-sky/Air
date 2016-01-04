@@ -26,9 +26,9 @@ public class Main {
 	
 	public void processingAndOutput(){
 //		fourSeasonProcessingAndOutputData();
-//		yearProcessingAndOutputData();
+		yearProcessingAndOutputData();
 //		yp.execute();
-		dayProcessingAndOutputData();
+//		dayProcessingAndOutputData();
 	}
 	
 	public void readData(){

@@ -25,7 +25,7 @@ public class DayProcessing {
 //				n = "N,1000,"+linesplit[0]+"n,"+linesplit[1];
 				//morning,afternoon,evening
 				for(int j=0; j<4; j++){
-					for(int k=0; k<6; k++){
+					for(int k=0; k<2; k++){
 						if(j==0){
 							if(k+7<dataSize){
 //								m = m + "," + linesplit[k+7];
