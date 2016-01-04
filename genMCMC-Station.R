@@ -29,15 +29,15 @@ show(elapsedTime)
 #------------------------------------------------------------------------------- 
 # Display diagnostics of chain, for specified parameters:
 parameterNames = varnames(mcmcCoda) # get all parameter names for reference
-for ( parName in c("omega[1]","omegaO","kappa[1]","kappaO","theta[1]") ) { 
-  diagMCMC( codaObject=mcmcCoda , parName=parName , 
-            saveName=fileNameRoot , saveType=graphFileType )
-}
+#for ( parName in c("omega[1]","omegaO","kappa[1]","kappaO","theta[1]") ) { 
+#  diagMCMC( codaObject=mcmcCoda , parName=parName , 
+#            saveName=fileNameRoot , saveType=graphFileType )
+#}
 #------------------------------------------------------------------------------- 
 # Get summary statistics of chain:
 summaryInfo = smryMCMC( mcmcCoda , compVal=NULL , 
                         #diffSVec=c(75,156, 159,844) , 
-                        #diffCVec=c(1,2,3,4) , # Four Season
+                        diffCVec=c(1,2,3,4,5,6,7,8,9) , # Four Season
                         compValDiff=0.0 , saveName=fileNameRoot )
 # Display posterior information:
 plotMCMC( mcmcCoda , data=myData , 

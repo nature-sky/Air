@@ -29,32 +29,32 @@ show(elapsedTime)
 #------------------------------------------------------------------------------- 
 # Display diagnostics of chain, for specified parameters:
 parameterNames = varnames(mcmcCoda) # get all parameter names for reference
-for ( parName in c("omega[1]","omegaO","kappa[1]","kappaO","theta[1]") ) { 
-  diagMCMC( codaObject=mcmcCoda , parName=parName , 
-            saveName=fileNameRoot , saveType=graphFileType )
-}
+#for ( parName in c("omega[1]","omegaO","kappa[1]","kappaO","theta[1]") ) { 
+#  diagMCMC( codaObject=mcmcCoda , parName=parName , 
+#            saveName=fileNameRoot , saveType=graphFileType )
+#}
 #------------------------------------------------------------------------------- 
 # Get summary statistics of chain:
 summaryInfo = smryMCMC( mcmcCoda , compVal=NULL , 
                         #diffSVec=c(75,156, 159,844) , 
-                        #diffCVec=c(1,2,3,4) , # Four Season
+                        diffCVec=c(1,2,3,4,5,6,7,8,9,10,11,12) , # All Year
                         compValDiff=0.0 , saveName=fileNameRoot )
 # Display posterior information:
 plotMCMC( mcmcCoda , data=myData , 
           # The column in our data
           zName="Day1", NName="Dummy", sName="DateStation", cName="Year", 
           compVal=NULL ,
-          diffCList=list( c("2014","2013") ,
-                          c("2013","2012") ,# Compare Spring and Summer
-                          c("2012","2011") ,
-                          c("2011","2010") ,
-                          c("2010","2009") ,
-                          c("2009","2008") ,
-                          c("2008","2007") ,
-                          c("2007","2006") ,
-                          c("2006","2005") ,
-                          c("2005","2004") ,
-                          c("2004","2003") ) , # Compare Autumn and Winter
+          diffCList=list( c("Y2014","Y2013") ,
+                          c("Y2013","Y2012") ,# Compare Spring and Summer
+                          c("Y2012","Y2011") ,
+                          c("Y2011","Y2010") ,
+                          c("Y2010","Y2009") ,
+                          c("Y2009","Y2008") ,
+                          c("Y2008","Y2007") ,
+                          c("Y2007","Y2006") ,
+                          c("Y2006","Y2005") ,
+                          c("Y2005","Y2004") ,
+                          c("Y2004","Y2003") ) , # Compare Autumn and Winter
           #diffSList=list( c("2014/01/04","2014/06/13") ), # Compare two dates
           # c("Mike Leake","Wandy Rodriguez") , 
           #c("Andrew McCutchen","Brett Jackson") , 
