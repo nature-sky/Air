@@ -41,7 +41,9 @@ public class AllFileCollect {
 				boolean ok = true;
 				String newLine = "";
 				if (line.contains("PM10") || count == 1) {
-					// System.out.println(line.split(",").length);
+					System.out.println(line);
+					line = line.replaceAll("\"", "");
+//					System.out.println(line);
 					line = line.replace("日期", "Date");
 					line = line.replace("測站", "Station");
 					line = line.replace("測項", "Item");
@@ -51,6 +53,13 @@ public class AllFileCollect {
 					line = line.replace("桃園", "Taoyuan");
 					line = line.replace("基隆", "Keelung");
 					line = line.replace("觀音", "Guanyin");
+					line = line.replace("屏東", "Pingtung");
+					line = line.replace("鳳山", "Fengshan");
+					line = line.replace("台南", "Tainan");
+					line = line.replace("臺南", "Tainan");
+					line = line.replace("二林", "Erlin");
+					line = line.replace("沙鹿", "Shalu");
+					line = line.replace("彰化", "Changhua");
 					if (line.split(",").length != 27) {
 						continue;
 					}
@@ -137,7 +146,7 @@ public class AllFileCollect {
 
 				// write the row into file
 				if (WRITE_STATUS == true) {
-					System.out.println(s);
+					//System.out.println(s);
 					out.write(s + "\n");
 				}
 			}
