@@ -27,43 +27,43 @@ public class FourSeasonProcessing {
 
 					// Add Spring into Season attribute
 					case 3:
-						Constant.seasonDataList.add("Spring,1000," + line);
+						Constant.seasonDataList.add("Spring,10000," + line);
 						break;
 					case 4:
-						Constant.seasonDataList.add("Spring,1000," + line);
+						Constant.seasonDataList.add("Spring,10000," + line);
 						break;
 					case 5:
-						Constant.seasonDataList.add("Spring,1000," + line);
+						Constant.seasonDataList.add("Spring,10000," + line);
 						break;
 					// Add Summer into Season attribute
 					case 6:
-						Constant.seasonDataList.add( "Summer,1000," + line);
+						Constant.seasonDataList.add( "Summer,10000," + line);
 						break;
 					case 7:
-						Constant.seasonDataList.add( "Summer,1000," + line);
+						Constant.seasonDataList.add( "Summer,10000," + line);
 						break;
 					case 8:
-						Constant.seasonDataList.add( "Summer,1000," + line);
+						Constant.seasonDataList.add( "Summer,10000," + line);
 						break;
 					// Add Autumn into Season attribute
 					case 9:
-						Constant.seasonDataList.add("Autumn,1000," + line);
+						Constant.seasonDataList.add("Autumn,10000," + line);
 						break;
 					case 10:
-						Constant.seasonDataList.add("Autumn,1000," + line);
+						Constant.seasonDataList.add("Autumn,10000," + line);
 						break;
 					case 11:
-						Constant.seasonDataList.add("Autumn,1000," + line);
+						Constant.seasonDataList.add("Autumn,10000," + line);
 						break;
 					// Add Winter into Season attribute
 					case 12:
-						Constant.seasonDataList.add( "Winter,1000," + line);
+						Constant.seasonDataList.add( "Winter,10000," + line);
 						break;
 					case 1:
-						Constant.seasonDataList.add( "Winter,1000," + line);
+						Constant.seasonDataList.add( "Winter,10000," + line);
 						break;
 					case 2:
-						Constant.seasonDataList.add( "Winter,1000," + line);
+						Constant.seasonDataList.add( "Winter,10000," + line);
 						break;
 
 					default:

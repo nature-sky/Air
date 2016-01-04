@@ -28,8 +28,8 @@ public class Main {
 	}
 	
 	public void processingAndOutput(){
-//		fourSeasonProcessingAndOutputData();
-		yearProcessingAndOutputData();
+		fourSeasonProcessingAndOutputData();
+//		yearProcessingAndOutputData();
 //		yp.execute();
 //		dayProcessingAndOutputData();
 //		dailyTotalProcessingAndOutputData();

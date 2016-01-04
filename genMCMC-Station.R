@@ -13,14 +13,14 @@ source("genMCMC.R")
 # Optional: Specify filename root and graphical format for saving output.
 # Otherwise specify as NULL or leave saveName and saveType arguments 
 # out of function calls.
-fileNameRoot = "air-result-Station-" 
+fileNameRoot = "air-result-Station-DailyTol-" 
 graphFileType = "pdf" 
 #-------------------------------------------r------------------------------------ 
 # Generate the MCMC chain:
 startTime = proc.time()
 mcmcCoda = genMCMC( data=myData , 
                     # The column in our data
-                    zName="Day1", NName="Dummy", sName="DateStation", cName="Station",
+                    zName="DailyTol", NName="Dummy", sName="DateStation", cName="Station",
                     numSavedSteps=500 , saveName=fileNameRoot ,
                     thinSteps=20 )
 stopTime = proc.time()
@@ -42,7 +42,7 @@ summaryInfo = smryMCMC( mcmcCoda , compVal=NULL ,
 # Display posterior information:
 plotMCMC( mcmcCoda , data=myData , 
           # The column in our data
-          zName="Day1", NName="Dummy", sName="DateStation", cName="Station", 
+          zName="DailyTol", NName="Dummy", sName="DateStation", cName="Station", 
           compVal=NULL ,
           diffCList=list( c("Tamshui","Erlin") ,
                           c("Erlin","Tainan") ,# Compare Spring and Summer

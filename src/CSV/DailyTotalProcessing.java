@@ -24,8 +24,10 @@ public class DailyTotalProcessing {
 				for(int r = 3; r < split.length; r++) {
 					rowSum += Double.parseDouble(split[r]);
 				}
-				Constant.dailyTotalDataList.add(data+","+Integer.valueOf((int)rowSum).toString());
-				System.out.println(Integer.valueOf((int)rowSum).toString());
+				if(rowSum<10000){
+					Constant.dailyTotalDataList.add(data+","+Integer.valueOf((int)rowSum).toString());
+//					System.out.println(Integer.valueOf((int)rowSum).toString());
+				}
 			}
 		}
 	}
