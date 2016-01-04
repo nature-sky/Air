@@ -47,6 +47,10 @@ public class AllFileCollect {
 					line = line.replace("測項", "Item");
 					line = line.replace("淡水", "Tamshui");
 					line = line.replace("三義", "Sanyi");
+					line = line.replace("三重", "Sanchong");
+					line = line.replace("桃園", "Taoyuan");
+					line = line.replace("基隆", "Keelung");
+					line = line.replace("觀音", "Guanyin");
 					if (line.split(",").length != 27) {
 						continue;
 					}
