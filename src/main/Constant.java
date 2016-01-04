@@ -13,4 +13,5 @@ public class Constant {
 	public static ArrayList<String> yearDataList = new ArrayList<String>();
 	public static ArrayList<String> seasonDataList = new ArrayList<String>();
 	public static ArrayList<String> dayDataList = new ArrayList<String>();
+	public static ArrayList<String> dailyTotalDataList = new ArrayList<String>();
 }
